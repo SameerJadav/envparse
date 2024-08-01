@@ -1,3 +1,3 @@
-module github.com/SameerJadav/go-envparse
+module github.com/SameerJadav/envparse
 
 go 1.22.5
