@@ -2,6 +2,7 @@ package envparse
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	"io"
 	"os"
@@ -9,14 +10,9 @@ import (
 	"strings"
 )
 
-// Parse reads an env file from io.Reader, returning a map of keys-value pairs and an error.
-//
-// Only double-quoted values are escaped. Single-quoted and backquoted values
-// are treated as literal strings. Variable expansion (${...} and $...)
-// is performed in non-quoted and double-quoted values.
-//
-// Note: This function does not support multiline values.
-// Each key-value pair must be on a single line.
+// Parse reads an environment variables file from the provided io.Reader and
+// returns a map of key-value pairs. The function also returns an error if
+// any issues are encountered during parsing.
 func Parse(r io.Reader) (map[string]string, error) {
 	result := make(map[string]string)
 	scanner := bufio.NewScanner(r)
@@ -76,6 +72,19 @@ func Parse(r io.Reader) (map[string]string, error) {
 	}
 
 	return result, nil
+}
+
+// ParseFile reads an environment variables file from the specified filename
+// and returns a map of key-value pairs. The function also returns an error
+// if any issues are encountered during file reading or parsing.
+//
+// This function uses the [Parse] function internally to process the file contents.
+func ParseFile(filename string) (map[string]string, error) {
+	content, err := os.ReadFile(filename)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read env file %s: %w", filename, err)
+	}
+	return Parse(bytes.NewReader(content))
 }
 
 func isQuoted(value string) (byte, int, int, bool) {
