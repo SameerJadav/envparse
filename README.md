@@ -18,7 +18,7 @@ EnvParse is a Go package designed for efficiently parsing environment variables 
 - Single-quoted and backtick-quoted values are treated as literal strings
 - Variable expansion is performed in non-quoted and double-quoted values
 - Commented lines (lines prefixed with `#`), invalid lines (lines that are not comments and do not have an `=` sign), and lines with empty key will not be parsed
-- Inline comments (e.g., `KEY=VALUE#inline comment`) are removed from the value. If you want # in your value, you should quote it (e.g., `KEY="VALUE#with hash"`)
+- Inline comments are removed from the value. If you want `#` in your value, you should quote it (e.g., `KEY="VALUE#with hash"`)
 - Does not support multiline values
 
 ## Installation
