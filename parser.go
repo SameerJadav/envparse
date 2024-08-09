@@ -87,7 +87,7 @@ func ParseFile(filename string) (map[string]string, error) {
 	return Parse(bytes.NewReader(content))
 }
 
-func isQuoted(value string) (byte, int, int, bool) {
+func isQuoted(value string) (quote byte, start int, end int, ok bool) {
 	if len(value) < 2 {
 		return 0, -1, -1, false
 	}
