@@ -1,6 +1,6 @@
 # EnvParse
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/SameerJadav/envparse.svg)](https://pkg.go.dev/github.com/SameerJadav/envparse) [![CI](https://github.com/SameerJadav/envparse/actions/workflows/ci.yml/badge.svg)](https://github.com/SameerJadav/envparse/actions/workflows/ci.yml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/SameerJadav/envparse.svg)](https://pkg.go.dev/github.com/SameerJadav/envparse) [![Tests](https://github.com/SameerJadav/envparse/actions/workflows/tests.yml/badge.svg)](https://github.com/SameerJadav/envparse/actions/workflows/tests.yml)
 
 EnvParse is a Go package designed for efficiently parsing environment variables from `.env` files. It provides a straightforward and performant way to load environment variables into your Go applications.
 
